@@ -1,4 +1,7 @@
 pipeline {
+  enviroment {
+    JAVA_TOOL_OPTIONS="-Duser.home=/tmp/maven"
+  }
   agent {
     docker {
       image 'maven:latest'
