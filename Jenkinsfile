@@ -1,5 +1,5 @@
 pipeline {
-  enviroment {
+  environment {
     JAVA_TOOL_OPTIONS="-Duser.home=/home/jenkins/maven"
   }
   agent {
