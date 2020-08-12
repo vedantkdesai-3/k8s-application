@@ -1,17 +1,17 @@
 pipeline {
   enviroment {
-    JAVA_TOOL_OPTIONS="-Duser.home=/tmp/maven"
+    JAVA_TOOL_OPTIONS="-Duser.home=/home/jenkins/maven"
   }
   agent {
-    docker {
-      image 'maven:latest'
-      args '-v /tmp/maven:/var/maven/.m2 -e MAVEN_CONFIG=/var/maven/.m2'
+    dockerfile {
+      args '-v /repository/maven:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2'
     }
   }
   stages {
     stage('Build') {
       steps {
         echo 'Building'
+        sh 'mvn -version'
         sh 'mvn clean install'
       }
     }
