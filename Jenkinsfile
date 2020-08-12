@@ -4,7 +4,7 @@ pipeline {
   }
   agent {
     dockerfile {
-      args '-v /repository/maven:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2'
+      args '-v /tmp/maven:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2'
     }
   }
   stages {
