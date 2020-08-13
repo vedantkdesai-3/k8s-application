@@ -8,7 +8,7 @@ class K8sApplicationTests {
 
 	@Test
 	void contextLoads() {
-		assert(true);
+		assert(false);
 	}
 
 }
