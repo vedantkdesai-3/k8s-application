@@ -12,7 +12,7 @@ pipeline {
       steps {
         echo 'Building'
         sh 'mvn -version'
-        sh 'mvn clean install'
+        sh 'mvn clean compile'
       }
     }
   }
@@ -21,6 +21,12 @@ pipeline {
     stage('Tesing'){
       setps{
         echo 'Testing'
+        sh 'mvn test'
+      }
+      post {
+        always {
+            junit 'target/surefire-reports/**/*.xml'
+        }
       }
     }
   }
