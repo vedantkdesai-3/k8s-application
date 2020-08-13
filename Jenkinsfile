@@ -15,9 +15,6 @@ pipeline {
         sh 'mvn clean compile'
       }
     }
-  }
-
-  stages { 
     stage('Testing'){
       setps{
         echo 'Testing'
@@ -25,7 +22,6 @@ pipeline {
       }
     }
   }
-
   post {
     always {
         junit 'target/surefire-reports/**/*.xml'
