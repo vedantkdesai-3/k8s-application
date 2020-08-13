@@ -1,11 +1,9 @@
 pipeline {
-  environment {
-    JAVA_TOOL_OPTIONS="-Duser.home=/home/jenkins/maven"
-  }
   agent {
     dockerfile {
       args '-v /tmp/maven:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2'
     }
+
   }
   stages {
     stage('Build') {
@@ -15,16 +13,35 @@ pipeline {
         sh 'mvn clean compile'
       }
     }
+
     stage('Testing') {
-      steps {
-        echo 'Testing'
-        sh 'mvn test'
+      parallel {
+        stage('Testing') {
+          steps {
+            echo 'Testing'
+            sh 'mvn test'
+          }
+        }
+
+        stage('Perf-Testing') {
+          steps {
+            sh '''echo \'Perf Testing\'
+
+sh \'\'\' sleep 30'''
+          }
+        }
+
       }
     }
+
+  }
+  environment {
+    JAVA_TOOL_OPTIONS = '-Duser.home=/home/jenkins/maven'
   }
   post {
     always {
-        junit 'target/surefire-reports/**/*.xml'
+      junit 'target/surefire-reports/**/*.xml'
     }
+
   }
 }
