@@ -37,11 +37,13 @@ pipeline {
 
       }
     }
+
     stage('Deploy') {
       when {
         branch 'master'
       }
       steps {
+        input(message: 'Is Deployable ? ', ok: 'Yes')
         echo 'Deploying'
       }
     }
