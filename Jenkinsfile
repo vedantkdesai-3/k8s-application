@@ -18,9 +18,9 @@ pipeline {
   }
 
   stages { 
-    stage("Tesing"){
+    stage('Tesing'){
       setps{
-        echo "Testing"
+        echo 'Testing'
       }
     }
   }
