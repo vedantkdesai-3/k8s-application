@@ -15,8 +15,8 @@ pipeline {
         sh 'mvn clean compile'
       }
     }
-    stage('Testing'){
-      setps{
+    stage('Testing') {
+      setps {
         echo 'Testing'
         sh 'mvn test'
       }
