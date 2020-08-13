@@ -43,8 +43,8 @@ pipeline {
         branch 'master'
       }
       steps {
-        echo 'Deploying'
         input(message: 'Is Deployable ? ', ok: 'Yes')
+        echo 'Deploying'
       }
     }
 
