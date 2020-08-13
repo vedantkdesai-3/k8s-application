@@ -25,9 +25,13 @@ pipeline {
 
         stage('Perf-Testing') {
           steps {
-            sh '''echo \'Perf Testing\'
+            sh 'echo \'Perf-Testing\''
+          }
+        }
 
-sh \'\'\' sleep 30'''
+        stage('Integration-Testing') {
+          steps {
+            sh 'echo \'Integration Testing\''
           }
         }
 
