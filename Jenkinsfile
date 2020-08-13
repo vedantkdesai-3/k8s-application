@@ -18,7 +18,7 @@ pipeline {
   }
 
   stages { 
-    stage('Tesing'){
+    stage('Testing'){
       setps{
         echo 'Testing'
         sh 'mvn test'
