@@ -16,4 +16,10 @@ pipeline {
       }
     }
   }
+
+  stages { 
+    stage{
+      echo "Testing"
+    }
+  }
 }
