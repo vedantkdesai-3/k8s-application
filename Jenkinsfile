@@ -37,10 +37,10 @@ pipeline {
 
       }
     }
-    when {
-      branch 'master'
-    }
     stage('Deploy') {
+      when {
+        branch 'master'
+      }
       steps {
         echo 'Deploying'
       }
