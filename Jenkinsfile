@@ -18,7 +18,7 @@ pipeline {
   }
 
   stages { 
-    stage{
+    stage("Tesing"){
       echo "Testing"
     }
   }
