@@ -37,7 +37,9 @@ pipeline {
 
       }
     }
-
+    when {
+      branch master
+    }
     stage('Deploy') {
       steps {
         echo 'Deploying'
