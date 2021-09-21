@@ -1,7 +1,4 @@
-FROM maven:latest
-
-RUN useradd -m -u 1000 -s /bin/bash jenkins
-
-RUN mkdir -p /tmp/maven
-
-RUN yum install openssh-clients -y
+FROM openjdk:14-jdk-alpine
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
