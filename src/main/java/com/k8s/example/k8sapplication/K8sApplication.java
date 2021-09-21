@@ -11,8 +11,15 @@ public class K8sApplication {
 	public static Date severStartDate;
 
 	public static void main(String[] args) {
-		severStartDate = new Date();
+		init();
 		SpringApplication.run(K8sApplication.class, args);
+	}
+
+
+	public static void init(){
+		if(severStartDate == null){
+			severStartDate = new Date();
+		}
 	}
 
 }

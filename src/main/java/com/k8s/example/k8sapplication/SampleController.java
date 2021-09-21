@@ -10,8 +10,7 @@ public class SampleController {
 
     @GetMapping
     public ServerRO index(){
-        ServerRO ro  = new ServerRO(K8sApplication.severStartDate, (new Date()));
-        return ro;
+        return new ServerRO(K8sApplication.severStartDate, (new Date()));
     }
     
 }
